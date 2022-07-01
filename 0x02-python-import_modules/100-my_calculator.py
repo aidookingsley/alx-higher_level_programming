@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 100-my_calculator.py
-
+i
 if __name__ == "__main__":
     """Handle basic arithmetric operations."""
     from calculator_1 import add, sub, mul, div
@@ -17,4 +17,4 @@ if __name__ == "__main__":
 
     a = int(sys.argv[1])
     b = int(sys.argv[3])
-    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b))
+    print("{} {} {} = {}".format(a, sys.argv[2], b, ops[sys.argv[2]](a, b)))
