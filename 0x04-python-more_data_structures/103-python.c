@@ -1,15 +1,13 @@
 #include <Python.h>
 
-/**
- * print_python_list - Pointer to PyObject *p
- * print_python_bytes - print PyObject size
- * @p: pointer to PyObject
- *
- * Return: Always 0.
- */
-
 void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
+
+/**
+ * print_python_list - Prints basic info about Python lists.
+ * @p: A PyObject list object.
+ */
+
 void print_python_list(PyObject *p)
 {
 	int size, alloc, i;
@@ -27,16 +25,15 @@ void print_python_list(PyObject *p)
 	for (i = 0; i < size; i++)
 	{
 		type = list->ob_item[i]->ob_type->tp_name;
-		printf("element %d: %s\n", i, type);
+		printf("Element %d: %s\n", i, type);
 		if (strcmp(type, "bytes") == 0)
 			print_python_bytes(list->ob_item[i]);
 	}
 }
+
 /**
- * print_python_bytes - prints the size of PyBytesObject.
- * @p: pointer
- *
- * Return: Always 0.
+ * print_python_bytes - Prints basic info about Python byte objects.
+ * @p: A PyObject byte object.
  */
 
 void print_python_bytes(PyObject *p)
