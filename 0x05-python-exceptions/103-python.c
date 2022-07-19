@@ -25,7 +25,7 @@ void print_python_list(PyObject *p)
 	printf("[*] Python list info\n");
 	if (strcmp(p->ob_type->tp_name, "list") != 0)
 	{
-		printf(" [ERROR] Invalid List Object\n");
+		printf("  [ERROR] Invalid List Object\n");
 		return;
 	}
 
@@ -41,7 +41,6 @@ void print_python_list(PyObject *p)
 		else if (strcmp(type, "float") == 0)
 			print_python_float(list->ob_item[i]);
 	}
-
 }
 
 /**
@@ -79,7 +78,7 @@ void print_python_bytes(PyObject *p)
 		if (i == (size - 1))
 			printf("\n");
 		else
-			print(" ");
+			printf(" ");
 	}
 }
 /**
@@ -103,9 +102,8 @@ void print_python_float(PyObject *p)
 		return;
 	}
 
-	buffer = PyOS_double_to_string(float_obj->ob_fval,
-			'r', 0, Py_DTSF_ADD_DOT_0, NULL);
-	printf(" value: %s\n", buffer);
+	buffer = PyOS_double_to_string(float_obj->ob_fval, 'r', 0,
+			Py_DTSF_ADD_DOT_0, NULL);
+	printf("  value: %s\n", buffer);
 	PyMem_Free(buffer);
-
 }
