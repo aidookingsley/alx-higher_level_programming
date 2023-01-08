@@ -11,7 +11,7 @@ req(url, function (error, response, body) {
   else {
     const character = JSON.parse(body).characters;
     character.forEach((character) => {
-      request(character, function (error, response, body) {
+      req(character, function (error, response, body) {
         if (error) console.log(error);
         else console.log(JSON.parse(body).name);
       });
